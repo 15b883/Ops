@@ -1,0 +1,28 @@
+[master]
+172.18.38.[247:249]
+
+[salve:children]
+work-01
+work-02
+work-03
+work-04
+
+[work-01]
+172.18.38.1
+
+[work-02]
+172.18.38.[1:26]
+
+[work-03]
+172.18.38.[41:57]
+172.18.38.[64:69]
+
+[work-04]
+172.18.38.[162:189]
+172.18.38.[190:200] ansible_password=333333
+172.18.38.208 ansible_password=222222
+
+[all:vars]
+ansible_ssh_user="user"
+ansible_ssh_port=22
+ansible_password=111111

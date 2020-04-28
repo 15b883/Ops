@@ -1,0 +1,12 @@
+- name: copyfile
+  hosts: server-az1
+  gather_facts: false
+  become: yes
+  tasks:
+        - copy: src={{ item.src }} dest={{ item.dest }}
+          with_items:
+              - { src: "/scripts/service/api.py", dest: "/scripts/" }
+              - { src: "/scripts/service/base_api.py", dest: "/scripts/" }
+              - { src: "/scripts/service/utils.py", dest: "/scripts/" }
+              - { src: "/scripts/service/patch.sh", dest: "/scripts/" }
+              - { src: "/scripts/service/rollback.sh", dest: "/scripts/" }
