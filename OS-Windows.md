@@ -1,10 +1,14 @@
-# Windows Server
+# 常用链接
+
+安全更新指南：
+
+https://portal.msrc.microsoft.com/zh-cn/security-guidance
+
+https://www.catalog.update.microsoft.com/home.aspx
 
 #### .NET Framework
 
 https://dotnet.microsoft.com/download/dotnet-framework/net472
-
-
 
 #### KB2939155
 
