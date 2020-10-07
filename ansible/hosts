@@ -22,7 +22,15 @@ work-04
 172.18.38.[190:200] ansible_password=333333
 172.18.38.208 ansible_password=222222
 
+## 注意环境变量
 [all:vars]
 ansible_ssh_user="user"
 ansible_ssh_port=22
 ansible_password=111111
+ansible_ssh_private_key_file=/Users/15b883/keys/sshserver
+## 注意环境变量
+[work-03:vars]
+ansible_ssh_user=root
+#ansible_ssh_pass="123456"
+#ansible_ssh_port=22
+ansible_ssh_private_key_file=/Users/15b883/keys/sshserver
