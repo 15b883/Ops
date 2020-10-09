@@ -1,6 +1,6 @@
 
 
-# 整理日常运维所涉及到的资料
+# 整理日常运维所涉及的资料
 
 由于一些软件下载困难或寻找麻烦，所以整理备用
 
@@ -14,15 +14,10 @@ Office365全家桶、Sublime TXT、Xmind（思维导图）Snipaste（截图）�
 | :----------------------------------- | :----------------------------------------------------------- |
 | Git                                  | https://git-scm.com/downloads                                |
 | VMware （Windows）                   | 链接：https://pan.baidu.com/s/1JGTiz1ktC5yQ6-PXaDhX1A  <br/>提取码：yhlv |
-| VMware （macOS）                     | 链接：https://pan.baidu.com/s/19VRdtt0dtNym3SvXuSVQ-w  <br/>提取码：pk1q |
+| VMware （macOS）                     | 链接: https://pan.baidu.com/s/19VRdtt0dtNym3SvXuSVQ-w  <br/>提取码：pk1q |
 | Microsoft Remote Desktop For Windows | 链接: https://pan.baidu.com/s/1TT7Y9qilBVpWAkctBbsknw  <br/>密码: t502 |
 | Microsoft Remote Desktop For macOS   | 链接: https://pan.baidu.com/s/18XyIgqEnY61atyqDMPxVDw  <br/>密码: s9j9 |
-| Xshell 6                             | 链接：https://pan.baidu.com/s/1HltVmDsP3n9iYhCXV56P-A  <br/>提取码：eyqm |
-|                                      |                                                              |
-
-
-
-
+| Xshell 6                             | 链接: https://pan.baidu.com/s/1HltVmDsP3n9iYhCXV56P-A  <br/>提取码：eyqm |
 
 
 
@@ -56,7 +51,17 @@ Office365全家桶、Sublime TXT、Xmind（思维导图）Snipaste（截图）�
 | Windows10镜像    | https://www.microsoft.com/zh-cn/software-download/windows10ISO |
 | Azure PowerShell | https://docs.microsoft.com/zh-cn/powershell/azure/get-started-azureps?view=azps-3.0.0 |
 
+## JDK （Oracle）下载账号
 
+目前在官网下载 jdk以及其他oracle公司的产品的时候需要登陆
+
+分享账号，方便下载（网上整理）
+
+| 账号              | 密码            |
+| ----------------- | --------------- |
+| 3028064308@qq.com | Oracle123       |
+| 541509124@qq.com  | LR4ever.1314    |
+| 1364262875@qq.com | 7Jv?_ppXq9+j9n7 |
 
 
 
