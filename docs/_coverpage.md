@@ -1,12 +1,8 @@
 ![logo](./images/ops.svg)
 
-# 运维组
+# SYAVINGCS
 
-> 日常运维工作相关资料整理.
-
-* 办公软件：Office、Xmind
-* 自动化管理：ansible、salt
-* 持续集成：git、Jenkins
+> 根据日常运维工作进行构建自己的运维体系
 
 [GitHub](https://github.com/15b883/Ops.git)
 [Get Started](README)
