@@ -1,6 +1,6 @@
-<img src="./images/ansible.svg" style="zoom: 10%;" />
+<img src="./images/ansible.png">
 
-# Ansible命令
+# Ansible
 
 ## 常用模块
 ```
