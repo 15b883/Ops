@@ -1,4 +1,5 @@
 ## general
 .gitignore
 .DS_Store
+ansible/.DS_Store
 .git

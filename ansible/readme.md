@@ -1,6 +1,6 @@
-<img src="./images/ansible.png">
+<img src="./images/ansible.png" align="center:;" >
 
-# Ansible
+# Ansibl
 
 ## 常用模块
 ```
