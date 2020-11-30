@@ -1,10 +1,12 @@
-- name: copyfile
-  hosts: test
+- name: copyFile      ## 脚本名称
+  hosts: test         ## 执行脚本的节点 在hosts配置文件查看
   gather_facts: false
   become: yes
   tasks:
+        ## 复制文件到远程机器的目录
         - copy: src={{ item.src }} dest={{ item.dest }}
           with_items:
-              - { src: "/scripts/service/api.py", dest: "/scripts/" }
-              - { src: "/scripts/service/base_api.py", dest: "/scripts/" }
-
+              - { src: "/scripts/test.sh", dest: "/opt/" }
+        ## 执行命令      
+        - name: test.sh
+          shell: 'sh /opt/test.sh'

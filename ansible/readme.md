@@ -15,6 +15,20 @@ copy 复制文件到远程主机
 setup 查看远程主机的基本信息
 ```
 
+```
+name在tasks级别下面
+hosts        指定执行操作主机列表
+remote_user  指定执行用户
+tasks        指明有哪些操作
+name         动作描述
+shell        模块，后面为具体指令
+Variables 变量
+Templates 模版
+tags 标签
+```
+
+
+
 ## 测试连通性 
 
 ```
@@ -49,6 +63,20 @@ ansible test -a pwd
 
 # Playbook
 ![](./images/ansible-playbook.jpg)
+
+roles目录下面创建分项时所需要创建的目录
+
+```
+mkdir -p nginx/{files,handlers,tasks,templates,vars}
+
+## files     # 普通文件安装相关文件，例如安装包
+## tasks     # yml文件
+## templates # 模板文件，j2文件
+## handlers  #  
+## vars      # 变量
+```
+
+
 
 
 
