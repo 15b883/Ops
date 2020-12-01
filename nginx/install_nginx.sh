@@ -10,46 +10,30 @@
 #######################################################################################################
 install_dir='/opt/package/'
 conf_dir='/usr/local/nginx/'
-package=nginx-1.17.9.tar.gz
-dir=nginx-1.17.9
+package=nginx-1.18.0.tar.gz
+dir=nginx-1.18.0
+
 # create directory
-
-if [ ! -d "$install_dir" ]; then
-  mkdir -p "$install_dir"
-fi
-
-if [ ! -d "$conf_dir" ]; then
-  mkdir -p "$conf_dir"
-fi
-
-mkdir -p /var/logs/nginx/
-
-
+[ ! -d "$install_dir" ] && mkdir -p "$install_dir"
+[ ! -d "$conf_dir" ] && mkdir -p "$conf_dir"
+[ ! -d /var/log/nginx/ ] && mkdir -p /var/log/nginx/
+[ ! -d /usr/local/nginx/conf/layer7 ] && mkdir -p /usr/local/nginx/conf/layer7
 
 #install make package software
-yum -y install gcc gcc-c++ autoconf automake
-yum -y install zlib zlib-devel openssl openssl-devel pcre-devel
-yum -y install wget htop nmap uzip tree dos2unix
-
+yum -y install gcc gcc-c++ autoconf automake \
+       zlib zlib-devel openssl openssl-devel pcre-devel \
+       install wget htop nmap uzip tree dos2unix
 
 #user group
-sudo groupadd -r nginx
-sudo useradd -s /sbin/nologin -g nginx -r nginx
-
+groupadd -r nginx && useradd -s /sbin/nologin -g nginx -r nginx
 
 
 #install nginx package
 
 cd ${install_dir}
 
-if [ ! -f "$package" ]; then
-  wget http://nginx.org/download/"${package}"
-fi
-
-if [ ! -d "${install_dir}""${dir}" ]; then
-tar zvxf "${package}"
-fi
-
+if [ ! -f "$package" ]; then wget http://nginx.org/download/"${package}" ; fi
+if [ ! -d "${install_dir}""${dir}" ]; then tar zvxf "${package}" ;fi
 
 
 #make install
@@ -60,15 +44,13 @@ cd "${install_dir}""${dir}"
 --prefix=${conf_dir} \
 --sbin-path=${conf_dir}/sbin/nginx \
 --conf-path=${conf_dir}/conf/nginx.conf \
---error-log-path=/var/logs/nginx/error.log \
---http-log-path=/var/logs/nginx/access.log \
---pid-path=/var/logs/nginx/nginx.pid \
+--error-log-path=/var/log/nginx/error.log \
+--http-log-path=/var/log/nginx/access.log \
+--pid-path=/var/log/nginx/nginx.pid \
 --with-http_stub_status_module  \
 --with-http_ssl_module \
 --user=nginx \
 --group=nginx   && make &&  sudo make install
-
-
 
 #清理磁盘，
 #===
