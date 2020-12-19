@@ -49,7 +49,7 @@ pip3 install virtualenv
 virtualenv .env
 ```
 
-### macos & linux 环境下进入env
+### 进入env
 
 ```
 source .env/bin/activate
@@ -67,5 +67,9 @@ pip install -r requirements.txt
 deactivate
 ```
 
+## 指定不通版本的虚拟环境
 
+```
+virtualenv -p /usr/local/bin/python3 .env 
+```
 
