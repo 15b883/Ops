@@ -6,7 +6,8 @@
 ##
 cd /opt/packages
 wget https://nodejs.org/dist/v14.15.1/node-v14.15.1-linux-x64.tar.xz
-tar xf node-v14.15.1-linux-x64.tar.xz -C /usr/local/node
+tar xf node-v14.15.1-linux-x64.tar.xz 
+mv /opt/packages/node-v14.15.1-linux-x64/* /usr/local/node/
 echo "export PATH=/usr/local/node/bin:$PATH" >> /etc/profile
 source /etc/profile
 ## 使用淘宝镜像源，安装速度会快一些
