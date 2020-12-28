@@ -1,9 +1,9 @@
 [Unit]
-Description=redis-server
+Description=redis-service
 After=network.target
 [Service]
 Type=forking
-ExecStart=/usr/local/redis-6.0.9/src/redis-server /usr/local/redis-6.0.9/redis.conf
+ExecStart=/usr/local/redis/src/redis-server /usr/local/redis/redis.conf
 PrivateTmp=true
 [Install]
 WantedBy=multi-user.target
