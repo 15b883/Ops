@@ -1,29 +1,19 @@
-## 依赖包
+1、先下载依赖包，要不后面make会出现报错
 
-```
-yum install -y 
-zlib zlib-devel bzip2-devel openssl-devel \
-ncurses-devel sqlite-devel readline-devel \
-tk-devel libffi-devel gcc make wget 
-```
-
-## 官网下载所需版本
+2、去官网下载所需版本
 
 https://www.python.org/ftp/python/ 
 
-```
-wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tar.xz
-tar -xf Python-3.7.6
-cd Python-3.7.0
-[ ! -d /usr/local/Python3 ]; mkdir -p /usr/local/Python3
-./configure --prefix=/usr/local/Python3 --enable-optimizations
-make && make install
-#
-echo "export PATH=/usr/local/Python3/bin:$PATH" >> /etc/profile
-source /etc/profile
-```
+3、执行脚本安装
+
+4、验证安装成功 
 
 Python3默认自带pip
+
+```
+Python3 -V
+pip3 -V
+```
 
 pip2安装
 
@@ -31,45 +21,30 @@ pip2安装
 curl https://bootstrap.pypa.io/get-pip.py | python
 ```
 
-## pip3 升级
+pip3 升级
 
 ```
 pip3 install --upgrade pip
 ```
 
-## virtualenv
+virtualenv
 
 ```
 pip3 install virtualenv
-```
-
-### 创建env
-
-```
 virtualenv .env
-```
-
-### 进入env
-
-```
 source .env/bin/activate
-```
-
-### install packages
-
-```
 pip install -r requirements.txt
 ```
 
-### 退出虚拟环境
+退出虚拟环境
 
 ```
 deactivate
 ```
 
-## 指定不通版本的虚拟环境
+指定不通版本的虚拟环境
 
 ```
-virtualenv -p /usr/local/bin/python3 .env 
+virtualenv -p /usr/local/bin/python3 .env  # 通过选择不同版本的Python进行创建不同的虚拟环境
 ```
 
