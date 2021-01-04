@@ -13,6 +13,6 @@ source /etc/profile
 ## 使用淘宝镜像源，安装速度会快一些
 npm config set registry https://registry.npm.taobao.org
 ## 安装依赖
-npm install -g
+#npm install -g
 ## 安装pm2
 npm install -g pm2
