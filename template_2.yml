@@ -1,0 +1,8 @@
+- name: Replace file
+  hosts: work-01
+  gather_facts: false
+  become: yes
+  tasks:
+        - shell: sh test.sh
+          args:
+            chdir: /home/scripts/

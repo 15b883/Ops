@@ -1,0 +1,14 @@
+---
+#gitlab部署
+ - hosts: 172.16.10.33                            ##主机
+   remote_user: root                          ##用户
+   tasks:                                     ##任务
+ 
+     - name: install gitlab
+       yum: name=gitlab-ce-11.2.0-ce.0.el7.x86_64 state=present
+                
+     - name: config gitlab
+       copy: src=/mnt/gitlab.rb dest=/etc/gitlab/gitlab.rb
+                                 
+     - name: start gitlab
+
