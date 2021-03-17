@@ -45,3 +45,125 @@ ubuntu
 sudo apt-get install zlib1g-dev libbz2-dev libssl-dev libncurses5-dev libsqlite3-dev libreadline-dev tk-dev libgdbm-dev libdb-dev libpcap-dev xz-utils libexpat-dev
 ```
 
+
+
+gcc make wget tar
+
+> gcc make zlib wget tar
+>
+> 依赖库GMP、MPFR、MPC
+
+1、本地挂载到某个目录 
+
+```
+mount /xxx.iso /opt #注意挂载的目录是空目录
+```
+
+2、进行挂载后的目录
+
+3、找到packages目录
+
+4、找到相应的安装包进行安装
+
+linux, configure --prefix=/ 的作用是：编译的bai时候用来指定程du序存放路径 。
+
+1、不指定prefix
+
+- 可执行文件dao默认放在/usr /local/bin
+- 库文件默认放在/usr/local/lib
+- 配置文件默认放在/usr/local/etc
+- 其它的资源文件放在/usr /local/share
+
+2、指定prefix，直接删掉一个文件夹就够了
+
+## make 
+
+```
+wget http://ftp.gnu.org/gnu/make/make-4.2.tar.gz
+tar -zxvf make-4.2.tar.gz
+cd make-4.2
+./configure
+make
+make install
+ln -s -f /usr/local/bin/make  /usr/bin/make
+```
+
+
+
+## zlib
+
+http://www.zlib.net
+
+http://www.zlib.net/zlib-1.2.11.tar.gz
+
+http://www.zlib.net/zlib-1.2.11.tar.gz
+
+configure: error: *** zlib.h missing – please install first or check config.log
+
+```
+wget http://www.zlib.net/zlib-1.2.8.tar.gz
+tar -xvzf zlib-1.2.8.tar.gz
+cd zlib-1.2.8.tar.gz
+./configure
+make
+make instal
+```
+
+
+
+## gcc
+
+[ftp://ftp.mirrorservice.org/sites/sourceware.org/pub/gcc/releases/](ftp://ftp.mirrorservice.org/sites/sourceware.org/pub/gcc/releases/)
+
+[ftp://gcc.gnu.org/pub/gcc/infrastructure/](ftp://gcc.gnu.org/pub/gcc/infrastructure/)
+
+```
+cd /opt
+wget http://ftp.gnu.org/gnu/gcc/gcc-5.3.0/gcc-5.3.0.tar.gz
+tar -xvf gcc-5.3.0.tar.gz
+mkdir /usr/local/gcc-5.3.0/
+./opt/gcc-5.3.0/configure -prefix=/usr/local/gcc-5.3.0
+make
+make install
+
+##
+LD_LIBRARY_PATH=:/usr/local/mpc-0.8.1/lib:/usr/local/gmp-4.3.2/lib:/usr/local/mpfr-2.4.2/lib:/usr/local/gcc-5.3.0/lib:/usr/local/gcc-5.3.0/lib64
+
+```
+
+## 依赖库GMP、MPFR、MPC
+
+```
+⑴ 安装GMP4.3.2
+cd /opt
+wget ftp://gcc.gnu.org/pub/gcc/infrastructure/gmp-4.3.2.tar.bz2
+tar -xvf gmp-4.3.2.tar.bz2
+cd /opt/gmp-4.3.2
+mkdir /usr/local/gmp-4.3.2
+./configure --prefix=/usr/local/gmp-4.3.2
+make
+make install
+
+
+⑵ 安装MPFR2.4.2
+#进入下载目录
+cd /opt
+wget ftp://gcc.gnu.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2
+tar -xvf mpfr-2.4.2.tar.bz2
+cd /opt/mpfr-2.4.2
+mkdir /usr/local/mpfr-2.4.2
+./configure --prefix=/usr/local/mpfr-2.4.2 --with-gmp=/usr/local/gmp-4.3.2
+make
+make install
+
+⑶ 安装MPC0.8.1
+cd /opt
+wget ftp://gcc.gnu.org/pub/gcc/infrastructure/mpc-0.8.1.tar.gz
+tar -xvf mpc-0.8.1.tar.gz
+cd /opt/mpc-0.8.1
+mkdir /usr/local/mpc-0.8.1
+./configure --prefix=/usr/local/mpc-0.8.1 --with-gmp=/usr/local/gmp-4.3.2 --with-mpfr=/usr/local/mpfr-2.4.2
+make
+make install
+```
+

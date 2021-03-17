@@ -1,17 +1,12 @@
 #!/bin/bash
-e7_epel() {
-   #配置epel源    
-   curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
-   yum makecache
-}
-tools() {
-    #下载常用软件和工具包
-     yum install epel-release -y
-    yum update -y
-    yum install -y \
-    lrzsz nmap tree dos2unix nc telnet wget git htop \
-    net-tools gcc gcc-c++ vim iproute2 zip unzip iotop \
-    iftop screen lsof bind-utils
+
+install_package() {
+    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.back
+    wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo &> /dev/null
+    wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo &> /dev/null
+    echo -e "\033[31m正在安装常用软件包\033[0m"
+    yum -y install vim lsof zip nmap nc telnet wget git strace openssl openssl-devel gcc gcc-c++ cmake bind-utils libxml2-devel net-tools sysstat &> /dev/null
+    yum -y install ntpdate curl telnet lbzip2 bzip2 bzip2-devel pcre pcre-devel zlib-devel python-devel lrzsz man glibc glibc-devel &> /dev/null   
 }
 
 mkdir_directory() {
@@ -24,7 +19,7 @@ mkdir_directory() {
    [ ! -d /.root/scripts ] && mkdir -p /.root/scripts
    ssh-keygen -t rsa -b 4096 -P '' -f ~/.ssh/id_rsa > /dev/null 2>&1
    ## ssh-copy-id -i .ssh/id_dsa.pub root@172.16.1.41
-   touch ~/.ssh/authorized_keys
+   ## touch ~/.ssh/authorized_keys
 }
 
 set_ssh() {
@@ -38,7 +33,7 @@ sed -e 's/\#PermitEmptyPasswords no/PermitEmptyPasswords no/' -i /etc/ssh/sshd_c
 sed -e 's/\#PasswordAuthentication no/PermitEmptyPasswords yes/' -i /etc/ssh/sshd_config > /dev/null 2>&1
 
 #sed -e 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/' -i /etc/ssh/sshd_config > /dev/null 2>&1
-#sed -e 's/#UseDNS yes/UseDNS no/' -i /etc/ssh/sshd_config > /dev/null 2>&1
+sed -e 's/#UseDNS yes/UseDNS no/' -i /etc/ssh/sshd_config > /dev/null 2>&1
 #修改ssh默认连接端口
 #sed -e 's/#Port 22/Port 22222/' -i /etc/ssh/sshd_config > /dev/null 2>&1
 sed -e 's/#ListenAddress 0.0.0.0/ListenAddress 0.0.0.0/' -i /etc/ssh/sshd_config > /dev/null 2>&1
@@ -60,34 +55,27 @@ time_sync() {
    [ `grep ntpdate /var/spool/cron/root |wc -l` -ne 0 ] && action "uptime set" /bin/true || action "uptime set" /bin/false
 }
 
-closed_selinux() {
+closed_service() {
     #关闭selinux
     sed -i 's#=enforcing#=disabled#g'  /etc/selinux/config
     setenforce 0
     getenforce
-}
 
-closed_iptables() {
-    #closed firewalld.service
-    systemctl stop firewalld.service
-    systemctl disable firewalld.service
-}
-
-closed_postfinx() {
-    #关闭邮件服务
-    systemctl stop postfix.service
-    systemctl disable postfix.service
+    disable_services=(firewalld postfix acpid ip6tables mcelogd mdmonitor rpcbind rpcgssd rpcidmapd auditd haldaemon lldpad atd kdump netfs nfslock openct)
+    for service in ${disable_services[@]};do
+        systemctl disable ${service} &> /dev/null
+    done
+    systemctl enable sshd crond &> /dev/null
 }
 
 set_limits() {
-    #nofile limits
-    echo " * soft nofile 65535" >> /etc/security/limits.conf
-    echo " * hard nofile 65535" >> /etc/security/limits.conf
-    echo " * soft nproc 102400" >> /etc/security/limits.conf
-    echo " * hard nproc 102400" >> /etc/security/limits.conf
-    echo " * soft memlock unlimited" >> /etc/security/limits.conf
-    echo " * hard memlock unlimited" >> /etc/security/limits.conf
-    ulimit -SHn 65535 
+cat >> /etc/security/limits.conf <<EOF
+* soft nproc 65530
+* hard nproc 65530
+* soft nofile 65530
+* hard nofile 65530
+EOF
+
 }
 
 set_utf8() {
@@ -163,16 +151,14 @@ EOF
 }
 
 ############
-e7_epel() 
-tools()
-mkdir_directory()
+install_package()
+# mkdir_directory()
 set_ssh()
 time_sync()
-closed_selinux()
-closed_iptables()
-closed_postfinx()
+closed_service()
 set_limits() 
 set_utf8() 
-## lock_file()
+# time_out()
+# lock_file()
 clean_issue() 
 optimize_kernel()
