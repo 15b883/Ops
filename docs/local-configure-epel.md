@@ -8,7 +8,7 @@ cp -r /run/media/it/RHEL-8-0-0-BaseOS-x86_64/* /os/
 ```
 ## 配置 yum 源配置文件
 ```
-vim /etc/yum.repos.d/centos7.9.repo
+vim /etc/yum.repos.d/centos7_9.repo
 #---------------------------------
 [localrepo]  # 名字自定义
 name=CentOS-7.9 # 名字自定义
