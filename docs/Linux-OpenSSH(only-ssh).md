@@ -17,7 +17,7 @@ ssh -V
 # openssl 安装目录
 openssl version -a
 # 检查依赖包是否已安装 
-rpm -qa zlib-devel openssl-devel gcc
+rpm -qa | grep -E  "zlib-devel|openssl-devel|gcc"
 
 if [ `rpm -qa|grep -c gcc` -eq 1 ]; then echo "yes" ; else echo "no"; fi
 
