@@ -1,6 +1,6 @@
 
 
-```
+```sql
 sqlplus / as sysdba  # 以管理员模式进入数据库
 startup；            # 启动数据库
 shutdown immediate；  # 停止数据库

@@ -1,3 +1,9 @@
+[jdk]
+172.16.10.60 
+ansible_ssh_user=root 
+ansible_password="DF4^1M>2N"EV;gC!s3@?*"
+
+
 [master]
 172.18.38.[247:249]
 

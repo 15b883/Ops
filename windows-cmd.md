@@ -3,6 +3,15 @@
 使用组合键“Win+R”调用运行命令框，键入命令services.msc，回车，
 或者，单击“开始”——>“搜索”中输入“服务”——>双击“服务”，回车；
 
+## sc
+
+```
+sc query #查看所有服务
+sc query |findstr EasyConnect #查找某个服务
+```
+
+
+
 
 
 ## msiscsi

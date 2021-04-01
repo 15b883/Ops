@@ -1,0 +1,13 @@
+- hosts:              #定义主机
+  user: root          #以哪个用户来操作做
+  tasks:              #定义任务
+  - name: copy file     
+    copy: src=/Users/15b883/github/Ops/package/jdk-8u281-linux-x64.tar.gz  dest=/usr/src
+  - name: unzip
+    shell: tar -xzf /usr/src/jdk-8u281-linux-x64.tar.gz -C /usr/local
+  - name: as file
+    shell: mv /usr/local/jdk-8u281  /usr/local/java
+  - name: configure env1
+    shell: echo "JAVA_HOME=/usr/local/java" >> /etc/profile
+  - name: configure env2
+    shell: echo 'PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH' >> /etc/profile
