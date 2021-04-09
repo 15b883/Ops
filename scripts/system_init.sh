@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+#
 
 install_package() {
     mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.back
