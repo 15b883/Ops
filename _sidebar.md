@@ -8,5 +8,5 @@
 * [持续集成](/cicd/README.md)
 * [常用链接](link.md)
 * [工作环境](/workspaces/README.md)
-  * [Vmware Workstation](workspaces\vmware-workstation.md)
+  * [Vmware Workstation](/workspaces/vmware-workstation.md)
 
