@@ -43,15 +43,9 @@
 | Windows10镜像    | https://www.microsoft.com/zh-cn/software-download/windows10ISO |
 | Azure PowerShell | https://docs.microsoft.com/zh-cn/powershell/azure/get-started-azureps?view=azps-3.0.0 |
 
-## JDK （Oracle）下载账号
+## JDK （Oracle）下载
 
-目前在官网下载 jdk以及其他oracle公司的产品的时候需要登陆
+目前在官网下载 jdk以及其他oracle公司的产品的时候需要登陆 （账号网上百度）
 
-分享账号，方便下载（网上整理）
-
-| 账号              | 密码            |
-| ----------------- | --------------- |
-| 3028064308@qq.com | Oracle123       |
-| 541509124@qq.com  | LR4ever.1314    |
-| 1364262875@qq.com | 7Jv?_ppXq9+j9n7 |
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
