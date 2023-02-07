@@ -1,6 +1,6 @@
 ## Jdk
 
-https://www.oracle.com/cn/java/technologies/javase/javase-jdk8-downloads.html
+[Java SE Development Kit 8 - Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 下载安装包`jdk-8u271-linux-x64.tar.gz` 并解压到`/usr/local/`并重名命名为**jdk**文件夹
 
@@ -49,7 +49,17 @@ OS name: "linux", version: "5.9.8-1.el7.elrepo.x86_64", arch: "amd64", family: "
 ```
 
 ## maven仓库阿里云加速
+
+
+
 ```
+[root@pipeline-server conf]# pwd
+/usr/local/maven/conf
+[root@pipeline-server conf]# ls
+logging  settings.xml  toolchains.xml
+[root@pipeline-server conf]#
+##
+
 <mirror>
   <id>aliyunmaven</id>
   <mirrorOf>*</mirrorOf>
@@ -57,6 +67,29 @@ OS name: "linux", version: "5.9.8-1.el7.elrepo.x86_64", arch: "amd64", family: "
   <url>https://maven.aliyun.com/repository/public</url>
 </mirror>
 ```
+
+
+
+```shell
+  <!-- 全局JDK1.8配置 -->
+        <profile>
+            <id>jdk1.8</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <jdk>1.8</jdk>
+            </activation>
+            <properties>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
+```
+
+
+
+
 
 ## 修改默认仓库位置
 

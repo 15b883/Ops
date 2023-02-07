@@ -8,10 +8,13 @@
   * [GitLab](/code-management/gitlab.md)
 
 * [Pipeline](/pipeline/README.md)
+  * [Jenkins](/pipeline/jenkins.md)
+  * [Pipeline](/pipeline/pipeline.md)
   * [Maven](/pipeline/maven.md)
-
+  
 * [常用链接](link.md)
 * [工作环境](/workspaces/README.md)
   * [VMware Workstation](/workspaces/vmware-workstation.md)
   * [Docker](/workspaces/docker.md)
+  * [Windows10](/workspaces/window10.md)
 

@@ -1,6 +1,36 @@
 # 软件|工具|安装包
 
-## 工具
+## 常用软件
+
+Mac局部截图快捷键：Command + Shift + 4 
+
+粘贴板历史记录
+[https://clipy-app.com/](https://clipy-app.com/)
+
+截图软件 
+[https://zh.snipaste.com/](https://zh.snipaste.com/)
+
+本地hosts管理
+https://switchhosts.vercel.app/zh
+
+前端工具
+[https://codepen.io/](https://codepen.io/)
+
+在线画图工具
+[https://excalidraw.com/](https://excalidraw.com/)  白板
+[https://app.diagrams.net/](https://app.diagrams.net/) 思维导图
+
+jinj2
+[https://j2live.ttl255.com/](https://j2live.ttl255.com/) 
+
+匿名分享
+[https://anonfiles.com/](https://anonfiles.com/)
+
+vscode 中文插件
+
+https://marketplace.visualstudio.com/items?itemName=zhuyuanxiang.pangu-markdown-vscode
+
+## 工具分析
 
 | 名称                                 | 下载链接                                                     |
 | :----------------------------------- | :----------------------------------------------------------- |
