@@ -1,9 +1,11 @@
 
 
-安装声明式插件
+安装插件
 
 ```
 Declarative
+
+Ansicolor
 ```
 
 

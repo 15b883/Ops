@@ -6,12 +6,10 @@
 * [自动化配置管理](/automatic-configuration/README.md)
 * [代码管理](/code-management/README.md)
   * [GitLab](/code-management/gitlab.md)
-
 * [Pipeline](/pipeline/README.md)
-  * [Jenkins](/pipeline/jenkins.md)
-  * [Pipeline](/pipeline/pipeline.md)
+  * [Jenkinsfile](/pipeline/jenkinsfile.md)
+  * [Jenkins Share Library](/pipeline/jenkins-share-libs.md)
   * [Maven](/pipeline/maven.md)
-  
 * [常用链接](link.md)
 * [工作环境](/workspaces/README.md)
   * [VMware Workstation](/workspaces/vmware-workstation.md)
