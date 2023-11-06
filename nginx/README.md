@@ -93,3 +93,20 @@ configure arguments: --prefix=/usr/local/nginx/ --sbin-path=/usr/local/nginx//sb
 /usr/local/nginx/html/
 ```
 
+
+`index index.html index.htm;` 和 `try_files $uri /index.html;` 是 Nginx 服务器配置中用于处理文件或目录索引以及错误页面定向的两个不同指令。
+
+1. **index指令 (`index index.html index.htm;`)**:
+   - 这个指令用于定义服务器在请求的目录中寻找文件时的默认文件名称列表。当用户请求一个目录（例如 `http://example.com/somedirectory/`）而不指定具体文件名时，Nginx会按照`index`指令中列出的顺序查找默认文件，找到并返回第一个存在的文件。在这个例子中，Nginx将按照`index.html`然后是`index.htm`的顺序寻找并返回第一个存在的文件作为默认页面。
+
+   - 示例：如果用户访问 `http://example.com/somedirectory/`，Nginx会尝试查找`somedirectory/index.html`，如果找不到，将查找`somedirectory/index.htm`，返回第一个找到的文件。
+
+2. **try_files指令 (`try_files $uri /index.html;`)**:
+   - `try_files`指令用于在文件或目录请求时进行文件检查并尝试匹配，如果文件不存在，则定向请求到另一个位置。
+   - 在上述示例中，`try_files $uri /index.html;` 表示当请求的文件（由 `$uri` 变量代表）不存在时，服务器会尝试查找匹配的文件。如果找不到请求的文件，它将返回`/index.html`，作为错误页面或默认文件。
+
+   - 示例：如果用户请求 `http://example.com/somefile.html` 但该文件不存在，则Nginx将返回 `/index.html` 作为替代页面。这通常用于处理错误页面，重定向请求到一个默认的错误处理页面。
+
+**总结：**
+- `index`指令用于定义默认文件索引，当用户请求的是一个目录时，Nginx会尝试返回默认文件。
+- `try_files`指令用于尝试不同的文件路径或位置，如果请求的文件不存在，它会重定向请求到指定的位置或文件。
